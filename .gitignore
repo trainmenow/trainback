@@ -2,5 +2,8 @@
 
 .env
 
+*__pycache__*
+
 test-*/
 instance/*
+migrations/

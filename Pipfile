@@ -14,6 +14,10 @@ flask-script = "*"
 flask-bcrypt = "*"
 mysqlclient = "*"
 pymysql = "*"
+pylint-flask = "*"
+pylint = "*"
+flask-jwt-extended = "*"
+flask-mail = "*"
 
 [requires]
 python_version = "3.7"

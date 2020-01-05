@@ -6,6 +6,9 @@ from flask_script import Manager
 
 from trainback import create_app, db
 
+from trainback.trainmanager.user_account.models import Account
+
+
 app = create_app(os.getenv('APP_CONFIG') or 'dev')
 
 app.app_context().push()
