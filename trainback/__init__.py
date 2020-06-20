@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from flask_mail import Mail
+from flask_pymongo import PyMongo
 
 from config import config_by_name
 
@@ -11,6 +12,7 @@ db = SQLAlchemy()
 flask_bcrypt = Bcrypt()
 jwt = JWTManager()
 mail = Mail()
+mongo = PyMongo()
 
 
 from trainback.trainmanager import blueprint as manager_bp
@@ -28,6 +30,7 @@ def create_app(config_name):
     flask_bcrypt.init_app(app)
     jwt.init_app(app)
     mail.init_app(app)
+    mongo.init_app(app)
 
     app.register_blueprint(manager_bp)
     app.register_blueprint(logger_bp)
