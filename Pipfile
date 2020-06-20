@@ -18,6 +18,7 @@ pylint-flask = "*"
 pylint = "*"
 flask-jwt-extended = "*"
 flask-mail = "*"
+flask-pymongo = "*"
 
 [requires]
 python_version = "3.7"
