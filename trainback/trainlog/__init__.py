@@ -2,6 +2,7 @@ from flask import Blueprint
 from flask_restx import Api
 
 from trainback.trainlog.workout.controller import api as workout_ns
+from trainback.trainlog.exercise.controller import api as exercise_ns
 
 blueprint = Blueprint('logger_api', __name__, url_prefix='/log')
 
@@ -35,3 +36,4 @@ api = Api(blueprint,
           )
 
 api.add_namespace(workout_ns, path='/workout')
+api.add_namespace(exercise_ns, path='/exercise')
