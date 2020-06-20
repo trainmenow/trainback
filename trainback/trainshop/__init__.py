@@ -1,5 +1,5 @@
 from flask import Blueprint
-from flask_restplus import Api
+from flask_restx import Api
 
 blueprint = Blueprint('shop_api', __name__, url_prefix='/shop')
 
