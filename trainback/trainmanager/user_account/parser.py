@@ -1,4 +1,4 @@
-from flask_restplus import reqparse
+from flask_restx import reqparse
 
 
 user_account_parser = reqparse.RequestParser()

@@ -1,5 +1,5 @@
 from flask import Blueprint
-from flask_restplus import Api
+from flask_restx import Api
 
 from trainback.trainmanager.user_account.controller import api as ua_ns
 from trainback.trainmanager.auth.controller import api as auth_ns

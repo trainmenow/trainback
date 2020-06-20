@@ -1,5 +1,5 @@
 from flask import request
-from flask_restplus import Resource
+from flask_restx import Resource
 
 from trainback.trainmanager.user_account import api
 from flask_jwt_extended import get_jwt_identity

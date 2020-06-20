@@ -1,5 +1,5 @@
 from flask import request
-from flask_restplus import Resource
+from flask_restx import Resource
 
 from trainback.trainmanager.auth import api
 from flask_jwt_extended import jwt_refresh_token_required, jwt_required

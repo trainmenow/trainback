@@ -8,7 +8,6 @@ pylint = "*"
 
 [packages]
 flask = "*"
-flask-restplus = "*"
 flask-migrate = "*"
 flask-script = "*"
 flask-bcrypt = "*"
@@ -18,7 +17,9 @@ pylint-flask = "*"
 pylint = "*"
 flask-jwt-extended = "*"
 flask-mail = "*"
-flask-pymongo = "*"
+flask-pymongo = {extras = ["srv", "tls"],version = "*"}
+flask-restx = "*"
+pymongo = {extras = ["srv", "tls"],version = "*"}
 
 [requires]
 python_version = "3.7"
