@@ -22,4 +22,4 @@ class Exercises(Resource):
     @api.expect(exercise_parser)
     def post(self):
         data = exercise_parser.parse_args(request)
-        return create_exercise(data)
+        return create_exercise(data.exercise)

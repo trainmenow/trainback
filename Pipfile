@@ -20,6 +20,7 @@ flask-mail = "*"
 flask-pymongo = {extras = ["srv", "tls"],version = "*"}
 flask-restx = "*"
 pymongo = {extras = ["srv", "tls"],version = "*"}
+cerberus = "*"
 
 [requires]
 python_version = "3.7"
