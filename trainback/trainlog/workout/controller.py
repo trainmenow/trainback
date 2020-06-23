@@ -4,18 +4,21 @@ from flask_restx import Resource
 from flask_jwt_extended import get_jwt_identity
 
 from trainback.trainlog.workout import api
-from trainback.trainlog.service import create_workout
+from trainback.trainlog.service import create_workout, get_workouts_by_user
 from trainback.trainlog.workout.parser import workout_parser
+from trainback.trainlog.workout.dto import WorkoutDto
 
 from trainback.trainmanager.auth.decorators import admin_required, user_required
 
+_workout = WorkoutDto.workout
 
 @api.route('/')
 class Workouts(Resource):
-    @api.doc('list of all workouts', security='jwt')
+    @api.doc('list of all workouts of a user', security='jwt')
     @user_required
+    @api.marshal_list_with(_workout, envelope='workouts', skip_none=True)
     def get(self):
-        pass
+        return get_workouts_by_user(get_jwt_identity())
     
     @api.doc('create a new workout', security='jwt')
     @user_required
