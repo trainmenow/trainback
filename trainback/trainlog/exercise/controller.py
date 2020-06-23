@@ -20,6 +20,7 @@ class Exercises(Resource):
     @api.doc('create a new workout', security='jwt')
     # @user_required
     @api.expect(exercise_parser)
+    @api.response(201, '\<exerciseID\>')
     def post(self):
         data = exercise_parser.parse_args(request)
         return create_exercise(data.exercise)

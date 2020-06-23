@@ -10,6 +10,7 @@ def exercise_validator(value):
     SCHEMA = {
         'name': {
             'type': 'dict',
+            'required': True,
             'schema': {
                 'de': {'required': True, 'type': 'string'},
                 'en': {'required': False, 'type': 'string'}
@@ -17,6 +18,7 @@ def exercise_validator(value):
         },
         'description': {
             'type': 'dict',
+            'required': True,
             'schema': {
                 'de': {'required': True, 'type': 'string'},
                 'en': {'required': False, 'type': 'string'}
@@ -34,6 +36,7 @@ def exercise_validator(value):
     }
 
     v = Validator(SCHEMA)
+    v.allow_unknown = False
     if v.validate(value):
         return v.document
     else:
