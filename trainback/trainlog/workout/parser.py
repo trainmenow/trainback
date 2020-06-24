@@ -48,7 +48,6 @@ def workout_validator(value):
     
     v = Validator(SCHEMA)
     v.allow_unknown = False
-    print(value)
     if v.validate(value):
         return v.document
     else:
@@ -56,4 +55,4 @@ def workout_validator(value):
 
 
 workout_parser = reqparse.RequestParser()
-workout_parser.add_argument('workout', type=workout_validator, required=True, help='Example: ... Error:')
+workout_parser.add_argument('workout', type=workout_validator, required=True, help='Example: {"name": "name", "duration": 43, "date": "2012-05-29T19:30:03.283Z", "exercises": [{"sets": [{ "kind": "warm-up", "repeats": 15, "weight": 45.3 }], "exercise": "3785837tergn4398" }]} Error:')

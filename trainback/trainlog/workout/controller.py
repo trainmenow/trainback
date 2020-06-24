@@ -1,10 +1,9 @@
 from flask import request
 from flask_restx import Resource
-# from bson.objectid import ObjectId
 from flask_jwt_extended import get_jwt_identity
 
 from trainback.trainlog.workout import api
-from trainback.trainlog.service import create_workout, get_workouts_by_user
+from trainback.trainlog.service import create_workout, get_workouts_by_user, get_workout_by_id, del_workout_by_id, replace_workout
 from trainback.trainlog.workout.parser import workout_parser
 from trainback.trainlog.workout.dto import WorkoutDto
 
@@ -33,15 +32,18 @@ class Workouts(Resource):
 class SingleWorkout(Resource):
     @api.doc('detailed information of one workout', security='jwt')
     @user_required
+    @api.marshal_with(_workout, skip_none=True)
     def get(self, workout_id):
-        pass
+        return get_workout_by_id(workout_id, get_jwt_identity())
     
     @api.doc('update a workout', security='jwt')
     @user_required
-    def patch(self, workout_id):
-        pass
+    @api.expect(workout_parser)
+    def put(self, workout_id):
+        data = workout_parser.parse_args(request)
+        return replace_workout(workout_id, get_jwt_identity(), data.workout)
     
     @api.doc('delete a workout', security='jwt')
     @user_required
     def delete(self, workout_id):
-        pass
+        return del_workout_by_id(workout_id, get_jwt_identity())
