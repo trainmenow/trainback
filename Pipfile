@@ -21,6 +21,7 @@ flask-pymongo = {extras = ["srv", "tls"],version = "*"}
 flask-restx = "*"
 pymongo = {extras = ["srv", "tls"],version = "*"}
 cerberus = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.7"
